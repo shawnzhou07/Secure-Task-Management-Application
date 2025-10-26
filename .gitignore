@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environment variables (CRITICAL - contains passwords!)
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Database
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
