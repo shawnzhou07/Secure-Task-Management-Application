@@ -3,6 +3,8 @@ from jose import jwt, JWTError
 from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
+from fastapi import Depends, HTTPException
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 load_dotenv()
 
@@ -11,6 +13,7 @@ ALGORITHM = os.getenv("JWT_ALGORITHM")
 EXPIRATION_MINUTES = int(os.getenv("JWT_EXPIRATION_MINUTES"))
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+security = HTTPBearer()
 
 def hash_password(password: str) -> str:
     if len(password.encode('utf-8')) > 72:
@@ -36,3 +39,12 @@ def verify_token(token: str) -> dict | None:
         return payload
     except JWTError:
         return None
+
+def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)) -> dict:
+    token = credentials.credentials
+    payload = verify_token(token)
+    
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    return payload
