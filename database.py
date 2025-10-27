@@ -1,13 +1,16 @@
 import aiomysql
-
+import os
+from dotenv import load_dotenv
 from models import CREATE_USERS_TABLE, CREATE_TASKS_TABLE
 
+load_dotenv()
+
 DB_CONFIG = {
-    "host": "localhost",
-    "port": 3306,
-    "user": "root",
-    "password": "f2bh892x",
-    "db": "task_management_database",
+    "host": os.getenv("DB_HOST"),
+    "port": int(os.getenv("DB_PORT")),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "db": os.getenv("DB_NAME"),
 }
 
 pool = None
