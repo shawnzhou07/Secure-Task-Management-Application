@@ -3,6 +3,7 @@
 from fastapi import FastAPI, HTTPException, Depends
 from contextlib import asynccontextmanager
 from database import init_db, close_db, get_pool
+from fastapi.middleware.cors import CORSMiddleware
 from schemas import UserCreate, UserResponse, TaskCreate, TaskResponse
 from auth import hash_password, verify_password, create_access_token, get_current_user
 import aiomysql
@@ -20,6 +21,13 @@ async def lifespan(app: FastAPI):
     print("4. Goodbye!")
 
 app = FastAPI(lifespan=lifespan)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/auth/register", status_code=201)
 async def register(user: UserCreate):

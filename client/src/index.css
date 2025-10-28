@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 5px;
+    margin-bottom: 20px;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #c1bfbf;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.error-message {
+    color:rgb(182, 0, 0);
+    margin: 1px;    
+    font-weight: bold;
+    margin: 3px 0;
+}
+
+.success-message {
+    color:rgb(9, 182, 0);
+    margin: 1px;    
+    font-weight: bold;
+    margin: 3px 0;
+}
+
+button {
+    font-weight: 600;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+label {    
+    font-weight: bold;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    margin: 10px;
+}
+
+.description {
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.username-section input,
+.password-section input,
+.confirm-password-section input {
+    margin: 5px 0; 
+}
+
+.username-section,
+.password-section,
+.confirm-password-section {
+    margin: 5px 0;
+}
+
+.redirect {
+    margin-top: 5px;
+}
+
+.create-task-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.tasks-list {
+    margin-top: 30px;
+}
+
+.task-item {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.task-item h3 {
+    margin-bottom: 10px;
+}
+
+.task-item p {
+    margin: 5px 0;
+}
+
+select {
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+}
